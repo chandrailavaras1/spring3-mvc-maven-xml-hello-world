@@ -12,12 +12,6 @@ pipeline {
         NEXUS_REPO = "chandu-repo"
     }
     stages{
-        stage("clone"){
-            steps{
-                git branch: 'main', credentialsId: 'github_creds', url: 'https://github.com/chandrailavaras1/jenkins.git'
-                echo "Cloning the repo"
-            }
-        }
         stage("Build"){
             steps{
                 sh "mvn clean package -Dmaven.test.failure.ignore=true"
